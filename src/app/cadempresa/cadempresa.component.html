@@ -1,0 +1,73 @@
+<div class="container">
+
+  <p-card [style]="{width: 'px'}" styleClass="ui-card-shadow">
+    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h2>Dados Cadastrais / Empresa {{ editando ? ' - Editando - ' : '' }}</h2>
+        </div>
+
+        <div class="ui-g-12 ui-fluid">
+          <label style="display: block">Código: </label>
+          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="empresasSalvar.cdEmpresa" />
+        </div>
+        <div class="ui-g-8 ui-fluid">
+          <label style="display: block">Nome da Empresa: </label>
+          <input type="text" name="nmEmpresa" pInputText [(ngModel)]="empresasSalvar.nmEmpresa" />
+        </div>
+        <div class="ui-g-4 ui-fluid">
+          <label style="display: block">Nome Abreviado: </label>
+          <input type="text" name="nmAbreviado" pInputText [(ngModel)]="empresasSalvar.nmAbreviado" />
+        </div>
+        <div class="ui-g-3 ui-fluid">
+          <label style="display: block">CNPJ: </label>
+          <p-inputMask name="cnpjEmpresa" mask="99.999.999/9999.99" [(ngModel)]="empresasSalvar.cnpjEmpresa">
+          </p-inputMask>
+        </div>
+        <div class="ui-g-6 ui-fluid ">
+          <label style="display: block">Pessoa de Contato: </label>
+          <input type="text" name="pessoContrato" pInputText [(ngModel)]="empresasSalvar.pessoContrato" />
+        </div>
+        <div class="ui-g-3 ui-fluid">
+          <label style="display: block">Telefone: </label>
+          <p-inputMask mask="(99)99999-9999" name="nrTelefone" [(ngModel)]="empresasSalvar.nrTelefone"></p-inputMask>
+        </div>
+        <div class="ui-g-12 ui-fluid">
+          <label style="display: block">Endereço Completo </label>
+          <input type="text" name="enderecoCompleto" pInputText [(ngModel)]="empresasSalvar.enderecoCompleto" />
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <label style="display: block">Depreciação (em anos) </label>
+          <input type="text" name="nmAnodepreciacao" pInputText [(ngModel)]="empresasSalvar.nmAnodepreciacao" />
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <label style="display: block">Taxa de Interesse (%) </label>
+          <input type="text" name="vlTaxaIntresse" pInputText [(ngModel)]="empresasSalvar.vlTaxaIntresse" />
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <label style="display: block">Rótulo para "Projeto" </label>
+          <input type="text" name="txRotuloProjeto" pInputText [(ngModel)]="empresasSalvar.txRotuloProjeto" />
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <label style="display: block">Rótulo para "UPA" </label>
+          <input type="text" name="txRotuloUpa" pInputText [(ngModel)]="empresasSalvar.txRotuloUpa" />
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <label style="display: block">Rótulo para "UT" </label>
+          <input type="text" name="txRotuloUt" pInputText [(ngModel)]="empresasSalvar.txRotuloUt" />
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <label style="display: block">Moeda Local </label>
+          <input type="text" name="cdMoedaLocal" pInputText [(ngModel)]="empresasSalvar.cdMoedaLocal" />
+        </div>
+
+
+
+      </div>
+
+    </form>
+
+
+  </p-card>
+
+</div>
