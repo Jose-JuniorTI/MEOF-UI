@@ -22,7 +22,9 @@ export class MenuComponent implements OnInit {
                 items: [
                     {label: 'Empresa',
                     items: [
-                        {label: 'Cadastro'},
+                        {label: 'Cadastro',
+                        routerLink: '/cadempresa'
+                        },
                         {label: 'Área Manejo Florestal (AMF) / UPA / UT'},
 
                           ]
@@ -51,7 +53,7 @@ export class MenuComponent implements OnInit {
                     {
                     label: 'Atividade',
                     items: [
-                        {label: 'Cadasto'},
+                        {label: 'Cadastro'},
                         {label: 'Fase'},
                         {label: 'Fator Adverso'},
                       ]
@@ -72,7 +74,7 @@ export class MenuComponent implements OnInit {
                     {
                         label: 'Moeda'
                     },
-                    {separator:true},
+                    {separator: true},
                     {
                         label: 'Sair'
                     },
@@ -89,15 +91,15 @@ export class MenuComponent implements OnInit {
                     {label: 'Fomulário de Equipe'},
                     {label: 'Frequencia do Empregado'},
                     {label: 'Frequencia de Máquina'},
-                    {separator:true},
+                    {separator: true},
                     {label: 'Lançamento de Salário'},
                     {label: 'Lancamento de Despesas'},
                     {label: 'Consumo de Peças'},
-                    {separator:true},
+                    {separator: true},
                     {label: 'Formulário de Apoio',
                             items: [
                                 {label: 'Ficha de Frequência'},
-                                {separator:true},
+                                {separator: true},
                                 {label: 'Formulário de Equipe'},
                                 {label: 'Lançamento de Despesas'},
                                 {label: 'Consumo de Peças e Materiais'},
@@ -122,10 +124,10 @@ export class MenuComponent implements OnInit {
                 icon: ' pi pi-chart-line',
                 items: [
                     {label: 'Geração da Análise de Dados'},
-                    {separator:true},
+                    {separator: true},
                     {label: 'Produção Mensal'},
                     {label: 'Produção Média Diária'},
-                    {separator:true},
+                    {separator: true},
                     {label: 'Custo de Produção'},
                     {label: 'Custo por Volume. Área e Árvore'},
                     {label: 'Distribuição por tipo de Custo'},
@@ -137,13 +139,13 @@ export class MenuComponent implements OnInit {
                 items: [
                     {label: 'Produção por Equipe'},
                     {label: 'Produção por Equipe'},
-                    {separator:true},
+                    {separator: true},
                     {label: 'Custo de Produção por Equipe'},
                     {label: 'Custo de Produção por Máquina'},
                     {label: 'Custo Mensal de Produção'},
                     {label: 'Custo Total por Atividade'},
                     {label: 'Fator Adverso por Mês'},
-                    {separator:true},
+                    {separator: true},
                     {label: 'Situação do Empregado por Mês'},
                     {label: 'Situação da Máquima por Mês'}
                 ]

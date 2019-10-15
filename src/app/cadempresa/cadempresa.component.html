@@ -1,15 +1,17 @@
 <div class="container">
 
   <p-card [style]="{width: 'px'}" styleClass="ui-card-shadow">
-    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
-      <div class="ui-g">
+
+      <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+        <div class="ui-g">
+
         <div class="ui-g-12">
           <h2>Dados Cadastrais / Empresa {{ editando ? ' - Editando - ' : '' }}</h2>
         </div>
 
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="empresasSalvar.cdEmpresa" />
+          <input type="text" name="codigo" pInputText style="width: 50px" readonly="true" [(ngModel)]="empresasSalvar.cdEmpresa" />
         </div>
         <div class="ui-g-8 ui-fluid">
           <label style="display: block">Nome da Empresa: </label>
@@ -26,7 +28,7 @@
         </div>
         <div class="ui-g-6 ui-fluid ">
           <label style="display: block">Pessoa de Contato: </label>
-          <input type="text" name="pessoContrato" pInputText [(ngModel)]="empresasSalvar.pessoContrato" />
+          <input type="text" name="pessoContrato" pInputText [(ngModel)]="empresasSalvar.txPessoaContato" />
         </div>
         <div class="ui-g-3 ui-fluid">
           <label style="display: block">Telefone: </label>
@@ -61,11 +63,71 @@
           <input type="text" name="cdMoedaLocal" pInputText [(ngModel)]="empresasSalvar.cdMoedaLocal" />
         </div>
 
+        <div class="ui-g-2 ui-fluid">
+          <br />
+          <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!empresasSalvar.nmEmpresa"></button>
+        </div>
 
-
+      <div *ngIf="editando" class="ui-g-2 ui-fluid ">
+        <br />
+        <h3><strong><a routerLink="/cadempresa">Sair da edição</a></strong></h3>
       </div>
 
+      </div>
     </form>
+
+
+
+
+
+    <div class="ui-g">
+      <div class="ui-g-12">
+          <form  autocomplete="off" (ngSubmit)="pesquisar()">
+              <div class="ui-g-12 ui-fluid">
+                  <label style="display: block">Pesquisar por Nome: </label>
+                  <input type="text" pInputText name="nmEmpresa" [(ngModel)]="filtro.nmEmpresa">
+              </div>
+          </form>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12">
+
+          <p-table [value]="empresas" [paginator]="true" [rows]="filtro.size"  [responsive]="true"
+            [lazy]="true" [totalRecords]="tatalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
+
+              <ng-template pTemplate="header">
+                <tr>
+
+                  <th style=" width: 150px">Cod.</th>
+                  <th>Empresa</th>
+                  <th>Abreviado</th>
+                  <th>Telefone</th>
+
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-empresas>
+                <tr>
+                 <th>{{empresas.cdEmpresa}}</th>
+                 <th style="text-align: left">{{empresas.nmEmpresa}}</th>
+                 <th>{{empresas.nmAbreviado}}</th>
+                 <th>{{empresas.telefone}}</th>
+
+                  <th>
+
+                      <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/cadempresa', empresas.cdEmpresa]"></a>
+                      <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top" (click)="excluir(empresas)"></button>
+
+                  </th>
+                </tr>
+              </ng-template>
+            </p-table>
+
+
+          </div>
+
+        </div>
 
 
   </p-card>

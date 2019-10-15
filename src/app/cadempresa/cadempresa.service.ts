@@ -14,7 +14,7 @@ export class CadempresaFiltro {
 @Injectable()
 export class CadempresaService {
 
-  cadempresaurl = 'http://localhost:8080/cadempresa';
+  cadempresaurl = 'http://localhost:8081/cadempresa';
 
   constructor(private http: Http) { }
 
@@ -45,7 +45,21 @@ export class CadempresaService {
         return resultado;
       })
 
-  };
+  }
+
+
+  buscarPorCodigo(cdEmpresa: number): Promise<Cadempresa> {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+    return this.http.get(`${this.cadempresaurl}/${cdEmpresa}`, { headers })
+      .toPromise()
+      .then(response => {
+        const cadempresa = response.json() as Cadempresa;
+
+        return cadempresa;
+      });
+  }
 
 
   excluir(cdEmpresa: number): Promise<void> {
@@ -95,17 +109,8 @@ export class CadempresaService {
       });
   }
 
-  buscarPorCodigo(cdEmpresa: number): Promise<Cadempresa> {
-    const headers = new Headers();
-    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.cadempresaurl}/${cdEmpresa}`, { headers })
-      .toPromise()
-      .then(response => {
-        const cadempresa = response.json() as Cadempresa;
 
-        return cadempresa;
-      });
-  }
+
 
 }

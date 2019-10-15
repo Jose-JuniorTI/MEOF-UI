@@ -17,6 +17,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
+import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
 
 
 import { CadempresaService } from './cadempresa/cadempresa.service';
@@ -50,6 +52,8 @@ const routes: Routes = [
     FormsModule,
     InputTextModule,
     HttpModule,
+    ButtonModule,
+    TableModule,
     ConfirmDialogModule,
     AppRoutingModule,
     InputMaskModule

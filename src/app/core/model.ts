@@ -5,7 +5,7 @@ export class Cadempresa {
     vlTaxaIntresse: number;
     nrTelefone: string;
     enderecoCompleto: string;
-    txPessoaContrato: string;
+    txPessoaContato: string;
     txRotuloProjeto: string;
     txRotuloUpa: string;
     txRotuloUt: string;
